@@ -10,18 +10,18 @@
  * http://opensource.org/licenses/osl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
+ * to license@magento.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
  * Do not edit or add to this file if you wish to upgrade Magento to newer
  * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
+ * needs please refer to http://www.magento.com for more information.
  *
  * @category    Mage
  * @package     Mage_Connect
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @copyright  Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
@@ -320,6 +320,10 @@ final class Maged_Controller
      */
     public function connectPackagesPostAction()
     {
+        if (!$this->_validateFormKey()) {
+            echo "INVALID POST DATA";
+            return;
+        }
         $actions = isset($_POST['actions']) ? $_POST['actions'] : array();
         if (isset($_POST['ignore_local_modification'])) {
             $ignoreLocalModification = $_POST['ignore_local_modification'];
@@ -334,6 +338,10 @@ final class Maged_Controller
      */
     public function connectPreparePackagePostAction()
     {
+        if (!$this->_validateFormKey()) {
+            echo "INVALID POST DATA";
+            return;
+        }
         if (!$_POST) {
             echo "INVALID POST DATA";
             return;
@@ -355,6 +363,10 @@ final class Maged_Controller
      */
     public function connectInstallPackagePostAction()
     {
+        if (!$this->_validateFormKey()) {
+            echo "INVALID POST DATA";
+            return;
+        }
         if (!$_POST) {
             echo "INVALID POST DATA";
             return;
@@ -367,6 +379,11 @@ final class Maged_Controller
      */
     public function connectInstallPackageUploadAction()
     {
+        if (!$this->_validateFormKey()) {
+            echo "No file was uploaded";
+            return;
+        }
+
         if (!$_FILES) {
             echo "No file was uploaded";
             return;
@@ -439,6 +456,11 @@ final class Maged_Controller
      */
     public function settingsPostAction()
     {
+        if (!$this->_validateFormKey()) {
+            $this->session()->addMessage('error', "Unable to save settings");
+            $this->redirect($this->url('settings'));
+            return;
+        }
         if ($_POST) {
             $ftp = $this->getFtpPost($_POST);
 
@@ -766,11 +788,30 @@ final class Maged_Controller
     }
 
     /**
+     * Add domain policy header according to admin area settings
+     */
+    protected function _addDomainPolicyHeader()
+    {
+        if ($this->isInstalled()) {
+            /** @var Mage_Core_Model_Domainpolicy $domainPolicy */
+            $domainPolicy = Mage::getModel('core/domainpolicy');
+            if ($domainPolicy) {
+                $policy = $domainPolicy->getBackendPolicy();
+                if ($policy) {
+                    header('X-Frame-Options: ' . $policy);
+                }
+            }
+        }
+    }
+
+    /**
      * Dispatch process
      */
     public function dispatch()
     {
         header('Content-type: text/html; charset=UTF-8');
+
+        $this->_addDomainPolicyHeader();
 
         $this->setAction();
 
@@ -991,9 +1032,9 @@ final class Maged_Controller
     {
         return array(
             'major'     => '1',
-            'minor'     => '7',
-            'revision'  => '0',
-            'patch'     => '1',
+            'minor'     => '9',
+            'revision'  => '2',
+            'patch'     => '2',
             'stability' => '',
             'number'    => '',
         );
@@ -1089,5 +1130,25 @@ final class Maged_Controller
         }
 
         return $messagesMap[$type];
+    }
+
+    /**
+     * Validate Form Key
+     *
+     * @return bool
+     */
+    protected function _validateFormKey()
+    {
+        return $this->session()->validateFormKey();
+    }
+
+    /**
+     * Retrieve Session Form Key
+     *
+     * @return string
+     */
+    public function getFormKey()
+    {
+        return $this->session()->getFormKey();
     }
 }
