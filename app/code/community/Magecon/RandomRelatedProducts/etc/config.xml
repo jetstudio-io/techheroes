@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Open Biz Ltd
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mageconsult.net/terms-and-conditions
+ *
+ * @version    1.0.1
+ * @copyright  Copyright (c) 2012 Open Biz Ltd (http://www.mageconsult.net)
+ * @license    http://mageconsult.net/terms-and-conditions
+ */
+-->
+<config>
+	<modules>
+		<Magecon_RandomRelatedProducts>
+			<version>1.0.0</version>
+		</Magecon_RandomRelatedProducts>
+	</modules>
+	<global>
+		<blocks>
+			<catalog>
+				<rewrite>
+					<product_list_related>Magecon_RandomRelatedProducts_Block_Related</product_list_related>
+				</rewrite>
+			</catalog>
+		</blocks>
+	</global>	
+</config>

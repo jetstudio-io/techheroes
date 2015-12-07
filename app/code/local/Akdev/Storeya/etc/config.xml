@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Akdev
+ * @package    Akdev_Storeya
+ * @author     AjayKwatra@gmail.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Akdev_Storeya>
+            <version>0.1.2</version>
+        </Akdev_Storeya>
+    </modules>
+    <frontend>
+        <routers>
+            <storeya>
+                <use>standard</use>
+                <args>
+                    <module>Akdev_Storeya</module>
+                    <frontName>storeya</frontName>
+                </args>
+            </storeya>
+        </routers>
+        <layout>
+            <updates>
+                <storeya>
+                    <file>storeya.xml</file>
+                </storeya>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<storeya>
+				<use>admin</use>
+				<args>
+					<module>Akdev_Storeya</module>
+					<frontName>storeya</frontName>
+				</args>
+		
+			</storeya>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<storeya module="storeya">
+				<title>Storeya</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="storeya">
+						<title>Create API</title>
+						<sort_order>0</sort_order>
+						<!--<action>storeya/adminhtml_storeya</action> -->
+						<action>storeya/admin/</action>
+					</items>
+				</children>
+			</storeya>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Akdev_Storeya>
+							<title>Storeya Module</title>
+							<sort_order>10</sort_order>
+						</Akdev_Storeya>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<storeya>
+					<file>storeya.xml</file>
+				</storeya>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+       <!-- <models>
+            <storeya>
+                <class>Akdev_Storeya_Model</class>
+                <resourceModel>storeya_mysql4</resourceModel>
+            </storeya>
+            <storeya_mysql4>
+                <class>Akdev_Storeya_Model_Mysql4</class>
+                <entities>
+                    <storeya>
+                        <table>storeya</table>
+                    </storeya>
+                </entities>
+            </storeya_mysql4>
+        </models>
+        <resources>
+            <storeya_setup>
+                <setup>
+                    <module>Akdev_Storeya</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </storeya_setup>
+            <storeya_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </storeya_write>
+            <storeya_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </storeya_read>
+        </resources> -->
+        <blocks>
+            <storeya>
+                <class>Akdev_Storeya_Block</class>
+            </storeya>
+        </blocks>
+        <helpers>
+            <storeya>
+                <class>Akdev_Storeya_Helper</class>
+            </storeya>
+        </helpers>
+    </global>
+</config>

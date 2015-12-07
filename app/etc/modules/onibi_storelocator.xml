@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Onibi_StoreLocator>
+            <active>true</active>
+            <codePool>community</codePool>
+            <key>T25pYmlfRnJlZQ==</key>
+        </Onibi_StoreLocator>
+    </modules>
+</config>

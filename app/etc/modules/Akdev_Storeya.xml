@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Akdev
+ * @package    Akdev_Storeya
+ * @author     AjayKwatra@gmail.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Akdev_Storeya>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Akdev_Storeya>
+    </modules>
+</config> 

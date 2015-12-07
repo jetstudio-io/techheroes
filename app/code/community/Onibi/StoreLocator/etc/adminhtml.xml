@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<onibi translate="title" module="onibi_all">
+			<title>Onibi</title>
+			<sort_order>90</sort_order>
+			<depends>
+				<module>Onibi_All</module>
+			</depends>
+			<children>
+				<onibi_storelocator translate="title" module="onibi_storelocator">
+					<title>Store Locator</title>
+					<sort_order>1</sort_order>
+					<action>onibi_storelocator/adminhtml_store</action>
+				</onibi_storelocator>
+			</children>
+		</onibi>
+	</menu>
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<onibi translate="title" module="onibi_all">
+					   <title>Onibi</title>
+						<children>
+							<onibi_storelocator translate="title" module="onibi_storelocator">
+								<title>StoreLocator</title>
+								<sort_order>30</sort_order>
+							</onibi_storelocator>
+						</children>
+					</onibi>
+					<system>
+						<children>
+							<config>
+								<children>
+									<storelocator translate="title" module="onibi_storelocator">
+										<title>Onibi StoreLocator</title>
+									</storelocator>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

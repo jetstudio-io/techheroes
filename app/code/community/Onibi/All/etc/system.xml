@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <onibi translate="label" module="onibi_all">
+            <label>Onibi Extensions</label>
+            <sort_order>300</sort_order>
+        </onibi>
+    </tabs>
+</config>

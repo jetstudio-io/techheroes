@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <storelocator translate="label" module="onibi_storelocator">
+            <label>Store Locator</label>
+            <tab>onibi</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                         <serial translate="label">
+                            <label>Serial</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </serial>
+                        <apiurl translate="label">
+                            <label>API Url</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Enter here the Google API Url. Use the default value : http://maps.googleapis.com/maps/api/js?v=3</comment>
+                        </apiurl>
+                        <apikey translate="label">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Enter here the Google API key</comment>
+                        </apikey>
+                        <apisensor translate="label">
+                            <label>Api Sensor</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can enable the sensor to use the geolocation</comment>
+                        </apisensor>
+                        <direction translate="label">
+                            <label>Enable Direction</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>You can enable the direction</comment>
+                        </direction>
+                        <defaultimage translate="label comment">
+                            <label>Default Store Image</label>
+                            <comment>Allowed file types: PNG, JPG, JPEG.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>onibi_storelocator/system_config_backend_image</backend_model>
+                            <base_url type="media" scope_info="1">storelocator/images</base_url>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </defaultimage>
+                        <mapicon translate="label comment">
+                            <label>Marker Icon</label>
+                            <comment>Allowed file types: PNG, JPG, JPEG.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>onibi_storelocator/system_config_backend_marker</backend_model>
+                            <base_url type="media" scope_info="1">storelocator/markers</base_url>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mapicon>
+                    </fields>
+                </general>
+            </groups>
+        </storelocator>
+    </sections>
+</config>

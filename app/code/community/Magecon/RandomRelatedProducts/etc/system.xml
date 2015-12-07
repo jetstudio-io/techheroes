@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Open Biz Ltd
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://mageconsult.net/terms-and-conditions
+ *
+ * @version    1.0.1
+ * @copyright  Copyright (c) 2012 Open Biz Ltd (http://www.mageconsult.net)
+ * @license    http://mageconsult.net/terms-and-conditions
+ */
+-->
+<config>
+    <sections>
+        <catalog>
+            <groups>
+                <backend translate="label">
+                    <label>Random Related Products</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <rand_rel_products_count translate="label">
+			    			<label>Number of items to show</label>
+                        	<frontend_type>text</frontend_type>
+		            		<sort_order>50</sort_order>
+		            		<show_in_default>1</show_in_default>
+		            		<show_in_website>1</show_in_website>
+		            		<show_in_store>1</show_in_store>
+                        </rand_rel_products_count>
+                    </fields>
+                </backend>
+            </groups>
+        </catalog>
+    </sections>
+</config>

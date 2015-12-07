@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Onibi_All>
+            <version>1.0.0</version><platform>ce</platform>
+        </Onibi_All>
+    </modules>
+	<global>
+        <blocks>
+            <onibi_all>
+                <class>Onibi_All_Block</class>
+            </onibi_all>
+        </blocks>
+        <helpers>
+            <onibi_all>
+                <class>Onibi_All_Helper</class>
+            </onibi_all>
+        </helpers>
+	</global>
+	<frontend>
+	   <events>
+            <controller_action_layout_render_before>
+                <observers>
+                    <storelocator_check_valid>
+                        <type>model</type>
+                        <class>Onibi_All_Helper_Data</class>
+                        <method>checkValid</method>
+                    </storelocator_check_valid>
+                </observers>
+              </controller_action_layout_render_before>
+        </events>
+	</frontend>
+</config>

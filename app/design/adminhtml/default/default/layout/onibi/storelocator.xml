@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <onibi_storelocator_adminhtml_store_index>
+        <reference name="content">
+            <block type="onibi_storelocator/adminhtml_store" name="onibi_storelocator_store" />
+        </reference>
+    </onibi_storelocator_adminhtml_store_index>
+
+    <onibi_storelocator_adminhtml_store_new>
+        <update handle="onibi_storelocator_store_edit" />
+    </onibi_storelocator_adminhtml_store_new>
+
+    <onibi_storelocator_adminhtml_store_edit>
+        <reference name="content">
+            <block type="onibi_storelocator/adminhtml_store_edit" name="storelocator_store_edit"></block>
+        </reference>
+    </onibi_storelocator_adminhtml_store_edit>
+</layout>
